@@ -20,7 +20,14 @@ To clone and run this application, you'll need Git and Node.js (which comes with
    ```bash
    # Clone this repository
    $ git clone https://github.com/peterleunam1/neoexpress-calculator.git
-   $ cd neoexpress-calculator
+
+   # Install dependencies
    $ npm install 
+
+   # Run app
    $ npm run dev 
+
+   # Build app
+   $ npm run build
+   $ npm run start
    ```
