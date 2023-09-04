@@ -44,7 +44,6 @@ export const List = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  
   @media (max-width: 500px) {
     display: flex;
     justify-content: center;

@@ -4,8 +4,10 @@ export const CoreStyled = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 70%;
+  padding: 0.8rem;
+  background-color: red;
 
   @media (max-width: 500px) {
     width: 91.5%;

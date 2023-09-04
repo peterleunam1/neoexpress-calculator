@@ -23,7 +23,7 @@ export default function Core () {
 
   const rate = supplierPrice * (percenteges / 100) + tax
   const costs: number = Math.round(supplierPrice !== 0 ? rate : 0)
-  const total: number = costs + supplierPrice
+  const total: number = costs + supplierPrice + shipping
   const profits: number = salePrice !== 0 ? salePrice - total : 0
 
   return (
