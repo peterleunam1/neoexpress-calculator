@@ -5,12 +5,14 @@ import { Profits } from '@/components/molecules'
 import { InputComponent, InvoiceItem } from '@/components/atoms'
 import { getConvertPrice } from '@/utils'
 import { CoreStyled, HeaderStyled } from './core.styled'
+import { UIElements } from '@/constants'
 
 export default function Core () {
   const [supplierPrice, setSupplierPrice] = useState<number>(0)
   const [salePrice, setSalePrice] = useState<number>(0)
   const { state } = useTaxes()
   const { percenteges, shipping, tax } = state
+  const { title, description } = UIElements
 
   const handleChangeSupplier = (value: string) => {
     setSupplierPrice(Number(value))
@@ -27,8 +29,8 @@ export default function Core () {
   return (
     <CoreStyled>
       <HeaderStyled>
-        <h1>Calculadora de costos</h1>
-        <p>Realiza cálculos de gastos de forma rápida y sencilla.</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </HeaderStyled>
       <FormControl w="full">
         <InputComponent

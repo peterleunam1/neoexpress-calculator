@@ -4,10 +4,13 @@ import { useTaxes } from '@/hooks'
 import { PaymentRate } from '@/components/molecules'
 import { getAsideData } from '@/utils'
 import { AsideStyled, List, Container } from './aside.styled'
+import { UIElements } from '@/constants'
 
 export default function Aside () {
   const { state, reset } = useTaxes()
   const data = getAsideData(state)
+  const { brand } = UIElements
+
   return (
     <AsideStyled>
       <Container>
@@ -20,7 +23,7 @@ export default function Aside () {
           mb={6}
         >
           <Highlight query="neo" styles={{ fontWeight: 'light' }}>
-            neo express
+            {brand}
           </Highlight>
         </Heading>
         <strong>Tarifas</strong>
