@@ -4,10 +4,9 @@ export const CoreStyled = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 70%;
-  padding: 0.8rem;
-  background-color: red;
+  height: 100%;
 
   @media (max-width: 500px) {
     width: 91.5%;
@@ -26,7 +25,7 @@ export const HeaderStyled = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   h1 {
     font-size: 1.4rem;

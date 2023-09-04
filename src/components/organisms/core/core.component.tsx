@@ -28,13 +28,13 @@ export default function Core () {
 
   return (
     <CoreStyled>
-      <HeaderStyled>
+      <HeaderStyled >
         <h1>{title}</h1>
         <p>{description}</p>
       </HeaderStyled>
       <FormControl w="full">
         <InputComponent
-          label="precio provedor"
+          label="Precio provedor"
           onChange={handleChangeSupplier}
         />
       </FormControl>
@@ -45,7 +45,7 @@ export default function Core () {
       </Box>
       <FormControl w="full">
         <InputComponent
-          label="precio venta"
+          label="Precio venta"
           onChange={handleChangeSale}
         />
       </FormControl>
