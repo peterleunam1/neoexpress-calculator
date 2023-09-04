@@ -9,8 +9,8 @@
 
 - [React JS](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Emotion](https://emotion.sh/docs/introduction)
 - [Chakra UI](https://chakra-ui.com/)
-- [Framer Motion](https://www.framer.com/motion/)
 - [Tabler Icons](https://tablericons.com/)
 
 ## How to Use
