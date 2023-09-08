@@ -7,7 +7,7 @@ export const getAsideData = (taxes: TaxesModel): PaymentRatesProps[] => {
   const { shipping, percenteges, tax } = taxes
   return [
     {
-      name: 'Envío',
+      name: 'envío',
       icon: <PlaneTilt size={20} />,
       values: [
         {
@@ -18,7 +18,7 @@ export const getAsideData = (taxes: TaxesModel): PaymentRatesProps[] => {
       ]
     },
     {
-      name: 'Mercado Pago',
+      name: 'mercado Pago',
       icon: <Moneybag size={20} />,
       values: [
         {

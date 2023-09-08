@@ -9,7 +9,7 @@ import { UIElements } from '@/constants'
 export default function Aside () {
   const { state, reset } = useTaxes()
   const data = getAsideData(state)
-  const { brand } = UIElements
+  const { brand, rates } = UIElements
 
   return (
     <AsideStyled>
@@ -26,16 +26,16 @@ export default function Aside () {
             {brand}
           </Highlight>
         </Heading>
-        <strong>Tarifas</strong>
+        <strong>{rates}</strong>
         <List>
           {data.map((item, index) => (
             <PaymentRate key={index} {...item} />
           ))}
         </List>
       </Container>
-      <Tooltip label="Restablecer tarifas" hasArrow bg="teal" color="white">
+      <Tooltip label="restablecer tarifas" hasArrow bg="teal" color="white">
         <Box cursor="pointer" alignSelf="self-start">
-          <ArrowsLeftRight size={15} onClick={reset} />
+          <ArrowsLeftRight size={15} onClick={reset} data-cy='reset' />
         </Box>
       </Tooltip>
     </AsideStyled>

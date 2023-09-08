@@ -6,3 +6,18 @@ export const UIElements = {
   profits: 'Ganancias',
   margin: 'Margen'
 }
+
+export const rates = {
+  shipping: {
+    spanish: 'envío',
+    english: 'shipping'
+  },
+  percentage: {
+    spanish: 'porcentaje',
+    english: 'percentage'
+  },
+  tax: {
+    spanish: 'costo fijo',
+    english: 'tax'
+  }
+}

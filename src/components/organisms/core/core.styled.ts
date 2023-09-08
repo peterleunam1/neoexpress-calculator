@@ -25,7 +25,7 @@ export const HeaderStyled = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 
   h1 {
     font-size: 1.4rem;

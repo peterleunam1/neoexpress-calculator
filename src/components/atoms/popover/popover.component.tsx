@@ -11,21 +11,30 @@ import {
   type PlacementWithLogical
 } from '@chakra-ui/react'
 import { type PopoverProps } from './popover.model'
+import { rates } from '@/constants'
 
-export default function PopoverComponent ({ children, icon, label, placement }: PopoverProps) {
+export default function PopoverComponent ({
+  children,
+  icon,
+  label,
+  placement
+}: PopoverProps) {
   const { onOpen, onClose, isOpen } = useDisclosure()
+  const { tax, percentage, shipping } = rates
   let placementValue: PlacementWithLogical = 'right'
-  if (placement === 'shipping') {
+  if (placement === shipping.english) {
     placementValue = 'bottom'
   }
-  const leftPlacements: string[] = ['tax', 'percentage']
+  const leftPlacements: string[] = [tax.english, percentage.english]
   if (leftPlacements.includes(placement)) {
     placementValue = 'left'
   }
 
   return (
     <>
-      <Box display="inline-block" mr={3}>{label}</Box>
+      <Box display="inline-block" mr={3} data-cy={`value-${placement}`}>
+        {label}
+      </Box>
       <Popover
         isOpen={isOpen}
         onOpen={onOpen}
@@ -35,12 +44,17 @@ export default function PopoverComponent ({ children, icon, label, placement }: 
         size="xs"
       >
         <PopoverTrigger>
-          <IconButton size="xs" icon={icon} aria-label="2" />
+          <IconButton
+            size="xs"
+            icon={icon}
+            aria-label="2"
+            data-cy={`icon-${placement}`}
+          />
         </PopoverTrigger>
         <PopoverContent p={5}>
           <FocusLock persistentFocus={false}>
             <PopoverArrow />
-            <PopoverCloseButton />
+            <PopoverCloseButton data-cy={`close-${placement}`} />
             {children}
           </FocusLock>
         </PopoverContent>

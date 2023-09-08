@@ -4,10 +4,16 @@ import { useTaxes } from '@/hooks'
 import { InputComponent, PopoverComponent } from '@/components/atoms'
 import { type PaymentRatesProps } from '../../../models/app.model'
 import { ItemContent, ListItem } from './payment-rate.styled'
+import { rates } from '@/constants'
+import { getCapitalize } from '@/utils'
 
 export default function PaymentRate ({ icon, name, values }: PaymentRatesProps) {
   const { setPercentege, setShipping, setTax } = useTaxes()
   const [inputValue, setInputValue] = useState<string>('')
+  const { tax, percentage, shipping } = rates
+  const capitalizedName = getCapitalize(name)
+  const popoverLabel = getCapitalize(`editar: ${name}`)
+  const isDisabled = !(inputValue.length >= 1)
 
   const handleChange = (value: string) => {
     setInputValue(value)
@@ -15,23 +21,21 @@ export default function PaymentRate ({ icon, name, values }: PaymentRatesProps) 
 
   const handleClick = (indicative: string) => {
     const value = Number(inputValue)
-    if (indicative === 'percentage') {
+    if (indicative === percentage.english) {
       setPercentege(value)
     }
-    if (indicative === 'shipping') {
+    if (indicative === shipping.english) {
       setShipping(value)
     }
-    if (indicative === 'tax') {
+    if (indicative === tax.english) {
       setTax(value)
     }
   }
 
-  const popoverLabel = `Editar: ${name.toLocaleLowerCase()}`
-  const isDisabled = !(inputValue.length >= 1)
   return (
     <ListItem>
       <ItemContent align="left">
-        {icon}{name}:
+        {icon}{capitalizedName}:
       </ItemContent>
       {values.map(({ price, edit, indicative }, index) => (
         <ItemContent key={index} align="right">
@@ -40,11 +44,13 @@ export default function PaymentRate ({ icon, name, values }: PaymentRatesProps) 
               <InputComponent
                 label={popoverLabel}
                 onChange={handleChange}
+                placeholder={`ingrese ${rates[indicative].spanish}`}
               />
               <Button
                 isDisabled={isDisabled}
                 size="sm"
-                color='teal'
+                color="teal"
+                data-cy={`save-${indicative}`}
                 onClick={() => {
                   handleClick(indicative)
                 }}

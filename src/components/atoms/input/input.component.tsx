@@ -1,8 +1,16 @@
 import { type ChangeEvent } from 'react'
-import { FormControl, FormLabel, Input, InputGroup, InputLeftAddon } from '@chakra-ui/react'
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputLeftAddon
+} from '@chakra-ui/react'
 import { type InputProps } from './input.model'
+import { getCapitalize } from '@/utils'
 
-export default function InputComponent ({ label, onChange }: InputProps) {
+export default function InputComponent ({ label, placeholder, onChange }: InputProps) {
+  const capitalizeLabel = getCapitalize(label)
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value
     event.preventDefault()
@@ -11,11 +19,16 @@ export default function InputComponent ({ label, onChange }: InputProps) {
 
   return (
     <FormControl>
-    <FormLabel fontSize='sm'>{label}</FormLabel>
-   <InputGroup size='sm'>
-   <InputLeftAddon children='$' />
-   <Input type='number' placeholder='ej: 50000' onChange={handleChange}/>
-   </InputGroup>
-  </FormControl>
+      <FormLabel fontSize="sm">{capitalizeLabel}</FormLabel>
+      <InputGroup size="sm">
+        <InputLeftAddon children="$" />
+        <Input
+          type="number"
+          placeholder={placeholder}
+          onChange={handleChange}
+          data-cy={label}
+        />
+      </InputGroup>
+    </FormControl>
   )
 }

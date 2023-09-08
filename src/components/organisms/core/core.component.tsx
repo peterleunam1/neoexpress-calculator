@@ -20,10 +20,16 @@ export default function Core () {
   const handleChangeSale = (value: string) => {
     setSalePrice(Number(value))
   }
-
+  const placeholder = 'e.j: 100000'
+  const shippingFormatted: string = getConvertPrice(shipping)
   const rate = supplierPrice * (percenteges / 100) + tax
+
   const costs: number = Math.round(supplierPrice !== 0 ? rate : 0)
+  const costsFormatted: string = getConvertPrice(costs)
+
   const total: number = costs + supplierPrice + shipping
+  const totalFormatted: string = getConvertPrice(total)
+
   const profits: number = salePrice !== 0 ? salePrice - total : 0
 
   return (
@@ -34,18 +40,20 @@ export default function Core () {
       </HeaderStyled>
       <FormControl w="full">
         <InputComponent
-          label="Precio provedor"
+          label="precio provedor"
+          placeholder={placeholder}
           onChange={handleChangeSupplier}
         />
       </FormControl>
       <Box my={3} w="full">
-        <InvoiceItem label="Envió">{getConvertPrice(shipping)}</InvoiceItem>
-        <InvoiceItem label="Costos">{getConvertPrice(costs)}</InvoiceItem>
-        <InvoiceItem label="Total:">{getConvertPrice(total)}</InvoiceItem>
+        <InvoiceItem label="envío">{shippingFormatted}</InvoiceItem>
+        <InvoiceItem label="costos">{costsFormatted}</InvoiceItem>
+        <InvoiceItem label="total">{totalFormatted}</InvoiceItem>
       </Box>
       <FormControl w="full">
         <InputComponent
-          label="Precio venta"
+          label="precio venta"
+          placeholder={placeholder}
           onChange={handleChangeSale}
         />
       </FormControl>

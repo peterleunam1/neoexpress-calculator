@@ -15,7 +15,7 @@
     "plugins": [
         "react"
     ],
-    "ignorePatterns" : ["vite.config.ts"],
+    "ignorePatterns" : ["vite.config.ts", "cypress.config.ts", "cypress/**/*"],
     "rules": {
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",

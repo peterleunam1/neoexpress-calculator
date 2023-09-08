@@ -13,12 +13,14 @@ import { UIElements } from '@/constants'
 export default function Profits ({ percentage, profit }: ProfitsProps) {
   const color: string = profit < 0 ? 'red' : 'inhereit'
   const { profits, margin } = UIElements
-
+  const profitsFormatted = getConvertPrice(profit)
   return (
     <Stonks>
       <Stat w="auto" textAlign="right">
         <StatLabel>{profits}</StatLabel>
-        <StatNumber color={color}>{getConvertPrice(profit)}</StatNumber>
+        <StatNumber color={color} data-cy="profits-number">
+          {profitsFormatted}
+        </StatNumber>
         <StatHelpText
           display="flex"
           alignItems="center"

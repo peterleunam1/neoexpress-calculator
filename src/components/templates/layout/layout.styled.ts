@@ -14,8 +14,8 @@ export const LayoutStyled = styled.div`
   main {
     overflow: hidden;
     position: relative;
-    width: 58%;
-    height: 65vh;
+    width: 62%;
+    height: 70vh;
     background-color: hsl(231, 100%, 99%);
     border-radius: 0.3125rem;
     padding: 0.75rem;
